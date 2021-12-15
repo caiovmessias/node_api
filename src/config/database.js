@@ -1,7 +1,7 @@
 module.exports = {
-  dialect: "mysql",
-  host: 'mysql-5.7',
-  user: 'root',
+  dialect: 'mysql',
+  host: 'localhost',
+  username: 'root',
   password: '12345678',
-  database: "waproject",
+  database: 'waproject',
 }
