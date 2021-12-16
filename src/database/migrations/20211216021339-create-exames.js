@@ -21,7 +21,7 @@ module.exports = {
         }
       },
       status: {
-        default: true,
+        defaultValue: true,
         type: Sequelize.BOOLEAN
       },
       createdAt: {

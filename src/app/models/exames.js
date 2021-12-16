@@ -13,11 +13,13 @@ module.exports = (sequelize, DataTypes) => {
       // define association here
       this.belongsTo(models.tiposExames, {
         foreignKey: 'tipo', 
-        as: 'tiposExames'
+        as: 'tiposExames',
+        onDelete: 'CASCADE',
       });
       this.belongsToMany(models.laboratoriosExames, {
         through: 'laboratoriosExames',
-        foreignKey: 'idExame'
+        foreignKey: 'idExame',
+        onDelete: 'CASCADE',
       });
     }
   };

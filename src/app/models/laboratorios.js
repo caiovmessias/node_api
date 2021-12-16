@@ -13,7 +13,8 @@ module.exports = (sequelize, DataTypes) => {
       // define association here
       this.belongsToMany(models.laboratoriosExames, {
         through: 'laboratoriosExames',
-        foreignKey: 'idLaboratorio'
+        foreignKey: 'idLaboratorio',
+        onDelete: 'CASCADE',
       });
     }
   };
