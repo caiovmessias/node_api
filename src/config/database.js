@@ -4,4 +4,5 @@ module.exports = {
   username: 'root',
   password: '12345678',
   database: 'waproject',
+  seederStorage: 'sequelize'
 }
