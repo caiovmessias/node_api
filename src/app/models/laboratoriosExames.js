@@ -11,15 +11,15 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
-      this.belongsTo(models.laboratorios, {
-        foreignKey: 'idLaboratorio',
-        onDelete: 'CASCADE',
-      });
+      // this.belongsTo(models.laboratorios, {
+      //   foreignKey: 'idLaboratorio',
+      //   onDelete: 'CASCADE',
+      // });
 
-      this.belongsTo(models.exames, {
-        foreignKey: 'idExame',
-        onDelete: 'CASCADE',
-      });
+      // this.belongsTo(models.exames, {
+      //   foreignKey: 'idExame',
+      //   onDelete: 'CASCADE',
+      // });
     }
   };
   laboratoriosExames.init({
