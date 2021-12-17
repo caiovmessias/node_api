@@ -11,16 +11,16 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
-      // this.belongsTo(models.tiposExames, {
-      //   foreignKey: 'tipo', 
-      //   as: 'tiposExames',
-      //   onDelete: 'CASCADE',
-      // });
-      // this.belongsToMany(models.laboratoriosExames, {
-      //   through: 'laboratoriosExames',
-      //   foreignKey: 'idExame',
-      //   onDelete: 'CASCADE',
-      // });
+      this.belongsTo(models.TipoExame, {
+        foreignKey: 'tipo', 
+        as: 'tiposExames',
+        onDelete: 'CASCADE',
+      });
+      this.belongsToMany(models.LaboratorioExame, {
+        through: 'laboratoriosExames',
+        foreignKey: 'idExame',
+        onDelete: 'CASCADE',
+      });
     }
   };
   Exame.init({

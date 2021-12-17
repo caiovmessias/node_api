@@ -3,7 +3,7 @@ const {
   Model
 } = require('sequelize');
 module.exports = (sequelize, DataTypes) => {
-  class laboratoriosExames extends Model {
+  class LaboratorioExame extends Model {
     /**
      * Helper method for defining associations.
      * This method is not a part of Sequelize lifecycle.
@@ -11,23 +11,24 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
-      // this.belongsTo(models.laboratorios, {
-      //   foreignKey: 'idLaboratorio',
-      //   onDelete: 'CASCADE',
-      // });
+      this.belongsTo(models.Laboratorio, {
+        foreignKey: 'idLaboratorio',
+        onDelete: 'CASCADE',
+      });
 
-      // this.belongsTo(models.exames, {
-      //   foreignKey: 'idExame',
-      //   onDelete: 'CASCADE',
-      // });
+      this.belongsTo(models.Exame, {
+        foreignKey: 'idExame',
+        onDelete: 'CASCADE',
+      });
     }
   };
-  laboratoriosExames.init({
+  LaboratorioExame.init({
     idLaboratorio: DataTypes.INTEGER,
     idExame: DataTypes.INTEGER
   }, {
     sequelize,
-    modelName: 'laboratoriosExames',
+    modelName: 'LaboratorioExame',
+    tableName: 'laboratoriosExames'
   });
-  return laboratoriosExames;
+  return LaboratorioExame;
 };
