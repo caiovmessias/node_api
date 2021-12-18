@@ -1,7 +1,7 @@
 const { Laboratorio } = require('../models');
 
 async function LaboratorioExists(request, response, next) {
-  const { id } = request.params;
+  const id = request.params.id !== undefined ? request.params.id : request.params.idLaboratorio;
 
   const laboratorioExists = await Laboratorio.findByPk(id);
 
