@@ -3,6 +3,6 @@ module.exports = {
   host: 'localhost',
   username: 'root',
   password: '12345678',
-  database: 'waproject',
+  database: 'node_api',
   seederStorage: 'sequelize'
 }

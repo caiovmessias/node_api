@@ -1,0 +1,26 @@
+version: "3.8"
+
+services:
+  node_api:
+    build:
+      context: .
+      target: dev
+    restart: always
+    ports:
+      - "8000:3000"
+    volumes:
+      - ".:/application"
+  
+  mysql-5.7:
+    image: mysql:5.7
+    command: --default-authentication-plugin=mysql_native_password
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: "12345678"
+    volumes:
+      - "/home/vagrant/services/data/mysql-5.7:/var/lib/mysql"
+      - "/home/vagrant/services/config/mysql-5.7:/etc/mysql/conf.d"
+    ports:
+      - "3306:3306"
+
+
