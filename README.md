@@ -46,7 +46,7 @@ Para executar o projeto em sua máquina é necessário possuir o Docker e o Dock
 1. Clone o projeto  
 `git clone https://github.com/caiovmessias/node_api.git`
 
-2. Suba o container do Mysql  
+2. Acessa a pasta do projeto e suba o container do Mysql  
 `docker-compose up -d mysql-5.7`
 
 3. Rode o comando abaixo para realizar a configuração do projeto  
