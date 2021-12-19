@@ -18,7 +18,7 @@
 
 <div align="center">
 
-[Sobre o projeto](#sobre-o-projeto-) | [Tecnologias Utilizadas](#tecnologias-utilizadas) | [Execução](#execucao)
+[Sobre o projeto](#sobre-o-projeto) | [Tecnologias Utilizadas](#Tecnologias-utilizadas) | [Execução](#execução)
 </div>
 
 ----  
