@@ -15,8 +15,7 @@ start:
 stop:
 	docker-compose stop
 
-restart: 
-  down up
+restart: down up
 
 logs:
 	docker-compose logs --tail=10 -f
