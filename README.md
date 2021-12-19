@@ -64,3 +64,5 @@ Comandos uteis após a configuração do projeto:
 `make down`
 
 Para visualizar outros comandos, acesse o arquivo `Makefile`  
+
+O projeto subirá na porta `8000`
