@@ -18,7 +18,10 @@ module.exports = (sequelize, DataTypes) => {
     }
   };
   TipoExame.init({
-    tipo: DataTypes.STRING,
+    tipo: { 
+      type: DataTypes.STRING,
+      allowNull: false
+    },
     status: DataTypes.BOOLEAN
   }, {
     sequelize,

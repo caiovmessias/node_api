@@ -1,0 +1,890 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Node API",
+    "description": "API para movimentações de Laboratórios e Exames",
+    "version": "1.0.0",
+    "contact": {
+      "email": "caiov.messias@icloud.com",
+      "name": "Caio Messias",
+      "url": "https://www.linkedin.com/in/caiomessias/"
+    }
+  },
+  "tags": [
+    {
+      "name": "Laboratorio"
+    },
+    {
+      "name": "Exame"
+    },
+    {
+      "name": "LaboratorioExame"
+    }
+  ],
+  "paths": {
+    "/laboratorio":{
+      "post": {
+        "tags": ["Laboratorio"],
+        "summary": "Criação de laboratório",
+        "description": "Cria um novo laboratório",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "nome": {
+                    "type": "string"
+                  },
+                  "endereco": {
+                    "type": "string"
+                  }
+                },
+                "example": {
+                  "nome": "Nome Laboratório",
+                  "endereco": "Rua da goiaba, 50"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Operação realizada com sucesso.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "integer"
+                    },
+                    "nome": {
+                      "type": "string"
+                    },
+                    "endereco": {
+                      "type": "string"
+                    },
+                    "status": {
+                      "type": "boolean"
+                    },
+                    "updatedAt": {
+                      "type": "string"
+                    },
+                    "createdAt": {
+                      "type": "string"
+                    }
+                  },
+                  "example": {
+                    "id": 1,
+                    "nome": "Laboratorio Teste",
+                    "endereco": "Rua do abacaxi, 780",
+                    "status": true,
+                    "updatedAt": "2021-12-19T23:14:27.001Z",
+                    "createdAt": "2021-12-19T23:14:27.001Z"
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Campos obrigatórios não informados",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string"
+                    }
+                  },
+                  "example": {
+                    "error": "Informe os campos nome e endereco"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "get": {
+        "tags": ["Laboratorio"],
+        "summary": "Laboratórios ativos",
+        "description": "Retorna um array com todos os laboratórios ativos.",
+        "responses": {
+          "200": {
+            "description": "Operação realizada com sucesso.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "integer"
+                    },
+                    "nome": {
+                      "type": "string"
+                    },
+                    "status": {
+                      "type": "boolean"
+                    },
+                    "endereco": {
+                      "type": "string"
+                    },
+                    "updatedAt": {
+                      "type": "string"
+                    },
+                    "createdAt": {
+                      "type": "string"
+                    }
+                  },
+                  "example": [
+                    {
+                      "id": 1,
+                      "nome": "Laboratorio ABC",
+                      "endereco": "Rua do abacaxi, 780",
+                      "status": true,
+                      "updatedAt": "2021-12-19T23:14:27.001Z",
+                      "createdAt": "2021-12-19T23:14:27.001Z"
+                    },
+                    {
+                      "id": 2,
+                      "nome": "Laboratorio XYZ",
+                      "status": true,
+                      "endereco": "Rua dos segundos, 260",
+                      "updatedAt": "2021-12-18T20:14:27.001Z",
+                      "createdAt": "2021-12-18T20:14:27.001Z"
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/laboratorio/:id": {
+      "put":{
+        "tags": ["Laboratorio"],
+        "summary": "Atualização de laboratório",
+        "parameters": [
+          {
+            "name": "id", 
+            "in": "path",
+            "schema":{
+            }, 
+            "required": true,
+            "description": "ID do laboratório"
+          }
+        ],
+        "description": "Atualiza uma laboratório ativo",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "nome": {
+                    "type": "string"
+                  },
+                  "endereco": {
+                    "type": "string"
+                  }
+                },
+                "example": {
+                  "nome": "Laboratório Atualizado",
+                  "endereco": "Rua atualização, 20"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Operação realizada com sucesso.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "integer"
+                    },
+                    "nome": {
+                      "type": "string"
+                    },
+                    "endereco": {
+                      "type": "string"
+                    },
+                    "status": {
+                      "type": "boolean"
+                    },
+                    "updatedAt": {
+                      "type": "string"
+                    },
+                    "createdAt": {
+                      "type": "string"
+                    }
+                  },
+                  "example": {
+                    "id": 1,
+                    "nome": "Laboratorio Atualizado",
+                    "endereco": "Endereco Atualizado",
+                    "status": true,
+                    "createdAt": "2021-12-19T23:14:27.000Z",
+                    "updatedAt": "2021-12-20T02:56:41.000Z"
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Laboratório não encontrado ou inativo",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string"
+                    }
+                  },
+                  "example": {
+                    "error": "Laboratorio not found"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete":{
+        "tags": ["Laboratorio"],
+        "summary": "Exclusão de laboratório",
+        "parameters": [
+          {
+            "name": "id", 
+            "in": "path",
+            "schema":{
+            }, 
+            "required": true,
+            "description": "ID do laboratório"
+          }
+        ],
+        "description": "Define o laboratório como inativo",
+        "responses": {
+          "200": {
+            "description": "Operação realizada com sucesso."
+          },
+          "404": {
+            "description": "Laboratório não encontrado ou inativo",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string"
+                    }
+                  },
+                  "example": {
+                    "error": "Laboratorio not found"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/exame":{
+      "post": {
+        "tags": ["Exame"],
+        "summary": "Criação de exame",
+        "description": "Cria um novo exame",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "nome": {
+                    "type": "string"
+                  },
+                  "tipo": {
+                    "type": "integer"
+                  }
+                },
+                "example": {
+                  "nome": "Nome Exame",
+                  "tipo": 1
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Operação realizada com sucesso.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "integer"
+                    },
+                    "nome": {
+                      "type": "string"
+                    },
+                    "status": {
+                      "type": "boolean"
+                    },
+                    "updatedAt": {
+                      "type": "string"
+                    },
+                    "createdAt": {
+                      "type": "string"
+                    },
+                    "TipoExame": {
+                      "type": "object",
+                      "properties": {
+                        "id": {
+                          "type": "integer"
+                        },
+                        "tipo": {
+                          "type": "string"
+                        },
+                        "status": {
+                          "type": "boolean"
+                        },
+                        "updatedAt": {
+                          "type": "string"
+                        },
+                        "createdAt": {
+                          "type": "string"
+                        }
+                      }
+                    }
+                  },
+                  "example": {
+                    "id": 1,
+                    "nome": "Nome Exame",
+                    "status": true,
+                    "createdAt": "2021-12-20T01:51:48.000Z",
+                    "updatedAt": "2021-12-20T03:22:40.000Z",
+                    "TipoExame": {
+                      "id": 1,
+                      "tipo": "Análise clinica",
+                      "status": true,
+                      "createdAt": "2021-12-19T23:13:29.000Z",
+                      "updatedAt": "2021-12-19T23:13:29.000Z"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Campos obrigatórios não informados",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string"
+                    }
+                  },
+                  "example": {
+                    "error": "Informe os campos nome e tipo"
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Tipo exame não encontrado",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string"
+                    }
+                  },
+                  "example": {
+                    "error": "Tipo Exame not found"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "get": {
+        "tags": ["Exame"],
+        "summary": "Exames ativos",
+        "description": "Retorna um array com todos os exames ativos.",
+        "responses": {
+          "200": {
+            "description": "Operação realizada com sucesso.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "integer"
+                    },
+                    "nome": {
+                      "type": "string"
+                    },
+                    "status": {
+                      "type": "boolean"
+                    },
+                    "updatedAt": {
+                      "type": "string"
+                    },
+                    "createdAt": {
+                      "type": "string"
+                    },
+                    "TipoExame": {
+                      "type": "object",
+                      "properties": {
+                        "id": {
+                          "type": "integer"
+                        },
+                        "tipo": {
+                          "type": "string"
+                        },
+                        "status": {
+                          "type": "boolean"
+                        },
+                        "updatedAt": {
+                          "type": "string"
+                        },
+                        "createdAt": {
+                          "type": "string"
+                        }
+                      }
+                    }
+                  },
+                  "example": [
+                    {
+                      "id": 1,
+                      "nome": "Exame Teste 1",
+                      "status": true,
+                      "createdAt": "2021-12-20T01:51:48.000Z",
+                      "updatedAt": "2021-12-20T03:22:40.000Z",
+                      "TipoExame": {
+                        "id": 1,
+                        "tipo": "Análise clinica",
+                        "status": true,
+                        "createdAt": "2021-12-19T23:13:29.000Z",
+                        "updatedAt": "2021-12-19T23:13:29.000Z"
+                      }
+                    },
+                    {
+                      "id": 2,
+                      "nome": "Exame Teste 2",
+                      "status": true,
+                      "createdAt": "2021-12-20T03:10:26.000Z",
+                      "updatedAt": "2021-12-20T03:10:26.000Z",
+                      "TipoExame": {
+                        "id": 2,
+                        "tipo": "Imagem",
+                        "status": true,
+                        "createdAt": "2021-12-19T23:13:29.000Z",
+                        "updatedAt": "2021-12-19T23:13:29.000Z"
+                      }
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/exame/:id": {
+      "put":{
+        "tags": ["Exame"],
+        "summary": "Atualização de exame",
+        "parameters": [
+          {
+            "name": "id", 
+            "in": "path",
+            "schema":{
+            }, 
+            "required": true,
+            "description": "ID do exame"
+          }
+        ],
+        "description": "Atualiza uma exame ativo",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "nome": {
+                    "type": "string"
+                  },
+                  "tipo": {
+                    "type": "integer"
+                  }
+                },
+                "example": {
+                  "nome": "Exame Atualizado",
+                  "tipo": 1
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Operação realizada com sucesso.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "integer"
+                    },
+                    "nome": {
+                      "type": "string"
+                    },
+                    "status": {
+                      "type": "boolean"
+                    },
+                    "updatedAt": {
+                      "type": "string"
+                    },
+                    "createdAt": {
+                      "type": "string"
+                    },
+                    "TipoExame": {
+                      "type": "object",
+                      "properties": {
+                        "id": {
+                          "type": "integer"
+                        },
+                        "tipo": {
+                          "type": "string"
+                        },
+                        "status": {
+                          "type": "boolean"
+                        },
+                        "updatedAt": {
+                          "type": "string"
+                        },
+                        "createdAt": {
+                          "type": "string"
+                        }
+                      }
+                    }
+                  },
+                  "example": {
+                    "id": 1,
+                    "nome": "Exame atualizado",
+                    "status": true,
+                    "createdAt": "2021-12-20T01:51:48.000Z",
+                    "updatedAt": "2021-12-20T03:31:41.000Z",
+                    "TipoExame": {
+                      "id": 2,
+                      "tipo": "Imagem",
+                      "status": true,
+                      "createdAt": "2021-12-19T23:13:29.000Z",
+                      "updatedAt": "2021-12-19T23:13:29.000Z"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Exame não encontrado ou inativo",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string"
+                    }
+                  },
+                  "example": {
+                    "error": "Exame not found"
+                  }
+                }
+              }
+            }
+          },
+          "406": {
+            "description": "Tipo exame não encontrado",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string"
+                    }
+                  },
+                  "example": {
+                    "error": "Tipo Exame not found"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete":{
+        "tags": ["Exame"],
+        "summary": "Exclusão de exame",
+        "parameters": [
+          {
+            "name": "id", 
+            "in": "path",
+            "schema":{
+            }, 
+            "required": true,
+            "description": "ID do exame"
+          }
+        ],
+        "description": "Define o exame como inativo",
+        "responses": {
+          "200": {
+            "description": "Operação realizada com sucesso."
+          },
+          "404": {
+            "description": "Exame não encontrado ou inativo",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string"
+                    }
+                  },
+                  "example": {
+                    "error": "Exame not found"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/associar/:idExame/:idLaboratorio": {
+      "post": {
+        "tags": ["LaboratorioExame"],
+        "summary": "Associa exame e laboratório",
+        "description": "Cria a associação de exames e laboratórios",
+        "parameters": [
+          {
+            "name": "idExame", 
+            "in": "path",
+            "schema":{
+            }, 
+            "required": true,
+            "description": "ID do exame"
+          },
+          {
+            "name": "idLaboratorio", 
+            "in": "path",
+            "schema":{
+            }, 
+            "required": true,
+            "description": "ID do laboratorio"
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Operação realizada com sucesso.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "integer"
+                    },
+                    "idLaboratorio": {
+                      "type": "string"
+                    },
+                    "idExame": {
+                      "type": "string"
+                    },
+                    "updatedAt": {
+                      "type": "string"
+                    },
+                    "createdAt": {
+                      "type": "string"
+                    }
+                  },
+                  "example": {
+                    "id": 1,
+                    "idLaboratorio": "1",
+                    "idExame": "1",
+                    "updatedAt": "2021-12-20T03:50:57.696Z",
+                    "createdAt": "2021-12-20T03:50:57.696Z"
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Exame ou Laboratório não encontrado",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string"
+                    }
+                  },
+                  "example": {
+                    "error": "Exame not found"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/desassociar/:idExame/:idLaboratorio": {
+      "delete": {
+        "tags": ["LaboratorioExame"],
+        "summary": "Desassocia exame e laboratório",
+        "description": "Exclui a associação de exames e laboratórios",
+        "parameters": [
+          {
+            "name": "idExame", 
+            "in": "path",
+            "schema":{
+            }, 
+            "required": true,
+            "description": "ID do exame"
+          },
+          {
+            "name": "idLaboratorio", 
+            "in": "path",
+            "schema":{
+            }, 
+            "required": true,
+            "description": "ID do laboratorio"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Operação realizada com sucesso."
+          },
+          "404": {
+            "description": "Associação não encontrado",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string"
+                    }
+                  },
+                  "example": {
+                    "error": "Associação not found"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/laboratorios/exames": {
+      "get": {
+        "tags": ["LaboratorioExame"],
+        "summary": "Laboratórios vinculados ao exame",
+        "description": "Retorna um array com todos os laboratórios vinculados ao nome do exame.",
+        "parameters": [
+          {
+            "name": "nome", 
+            "in": "header",
+            "schema":{
+            }, 
+            "required": true,
+            "description": "Nome do exame"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Operação realizada com sucesso.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "Laboratorio": {
+                      "type": "object",
+                      "properties": {
+                        "id": {
+                          "type": "integer"
+                        },
+                        "nome": {
+                          "type": "string"
+                        },
+                        "endereco": {
+                          "type": "string"
+                        },
+                        "status": {
+                          "type": "boolean"
+                        },
+                        "updatedAt": {
+                          "type": "string"
+                        },
+                        "createdAt": {
+                          "type": "string"
+                        }
+                      }
+                    }
+                  },
+                  "example": [
+                    {
+                      "Laboratorio": {
+                        "id": 1,
+                        "nome": "Laboratorio Atualizado",
+                        "endereco": "Endereco Atualizado",
+                        "status": true,
+                        "createdAt": "2021-12-19T23:14:27.000Z",
+                        "updatedAt": "2021-12-20T02:56:41.000Z"
+                      }
+                    },
+                    {
+                      "Laboratorio": {
+                        "id": 6,
+                        "nome": "Laboratorio Teste",
+                        "endereco": "Teste",
+                        "status": true,
+                        "createdAt": "2021-12-20T02:55:07.000Z",
+                        "updatedAt": "2021-12-20T02:55:07.000Z"
+                      }
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

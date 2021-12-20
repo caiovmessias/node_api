@@ -19,8 +19,14 @@ module.exports = (sequelize, DataTypes) => {
     }
   };
   Laboratorio.init({
-    nome: DataTypes.STRING,
-    endereco: DataTypes.STRING,
+    nome: { 
+      type: DataTypes.STRING,
+      allowNull: false
+    },
+    endereco: { 
+      type: DataTypes.STRING,
+      allowNull: false
+    },
     status: DataTypes.BOOLEAN
   }, {
     sequelize,
