@@ -18,7 +18,7 @@
 
 <div align="center">
 
-[Sobre o projeto](#sobre-o-projeto) | [Tecnologias Utilizadas](#Tecnologias-utilizadas) | [Execução](#execução)
+[Sobre o projeto](#sobre-o-projeto) | [Tecnologias Utilizadas](#Tecnologias-utilizadas) | [Execução](#execução) | [Documentação](#documentação)
 </div>
 
 ----  
@@ -64,3 +64,8 @@ Comandos uteis após a configuração do projeto:
 `make down`
 
 Para visualizar outros comandos, acesse o arquivo `Makefile`  
+
+## Documentação
+
+Foi disponibilizado uma documentação dos endpoints da API via Swagger.  
+Para visualiza-la basta rodar o projeto e acessar a rota `/docs`
