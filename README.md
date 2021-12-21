@@ -69,3 +69,13 @@ Para visualizar outros comandos, acesse o arquivo `Makefile`
 
 Foi disponibilizado uma documentação dos endpoints da API via Swagger.  
 Para visualiza-la basta rodar o projeto e acessar a rota `/docs`
+
+### Documentação auxiliar para funcionamento das rotas de Lote
+
+Para funcionamento correto da rota `/lote/exame` deve ser utilizado o parametro do tipo `Multipart Form` com o nome do parametro sendo `file` e enviar um arquivo `.csv` separado por virgula.
+
+**Formato de entrada do arquivo**  
+
+- **POST:** "nome,tipo"  
+- **PUT:** "id,nome,tipo"  
+- **DELETE:** "id"  
