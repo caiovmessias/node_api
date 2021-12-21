@@ -5,6 +5,8 @@ services:
     build:
       context: .
       target: dev
+    environment:
+      - NODE_ENV=${NODE_ENV}
     restart: always
     ports:
       - "8000:3000"
