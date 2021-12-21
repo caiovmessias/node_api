@@ -60,7 +60,7 @@ Comandos uteis após a configuração do projeto:
 - Iniciar o container da API e do Mysql  
 `make up`
 
-- Baixar os containers sda API e do Mysql  
+- Parar os containers da API e do Mysql  
 `make down`
 
 Para visualizar outros comandos, acesse o arquivo `Makefile`  
