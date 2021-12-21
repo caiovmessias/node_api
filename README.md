@@ -28,6 +28,12 @@
 O projeto consiste em ser uma API Rest desenvolvida em NodeJs que realiza o CRUD de Laboratórios e Exames.  
 Além do CRUD é possível realizar a associação e desassociação de Exames e Laboratórios.  
 
+<br/>
+<div align="center">
+    <img src="src/docs/diagramaBanco.png" width="650px;" alt=""/>
+    <p><i>Relacionamentos do banco de dados</i></p>
+</div>
+
 ## Tecnologias Utilizadas
 
 Foram utilizadas as seguintes tecnologias na API.  
