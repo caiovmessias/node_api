@@ -24,7 +24,10 @@ class ExameController {
         where: {
           status: true
         },
-        include: [ TipoExame ]
+        include: [ TipoExame ],
+        order: [ 
+          [ 'id', 'ASC' ]
+         ]
       });
   
       return response.status(200).json(exames);

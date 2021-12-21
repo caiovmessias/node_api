@@ -19,12 +19,17 @@
     },
     {
       "name": "LaboratorioExame"
+    },
+    {
+      "name": "Lote"
     }
   ],
   "paths": {
-    "/laboratorio":{
+    "/laboratorio": {
       "post": {
-        "tags": ["Laboratorio"],
+        "tags": [
+          "Laboratorio"
+        ],
         "summary": "Criação de laboratório",
         "description": "Cria um novo laboratório",
         "requestBody": {
@@ -108,7 +113,9 @@
         }
       },
       "get": {
-        "tags": ["Laboratorio"],
+        "tags": [
+          "Laboratorio"
+        ],
         "summary": "Laboratórios ativos",
         "description": "Retorna um array com todos os laboratórios ativos.",
         "responses": {
@@ -164,15 +171,16 @@
       }
     },
     "/laboratorio/:id": {
-      "put":{
-        "tags": ["Laboratorio"],
+      "put": {
+        "tags": [
+          "Laboratorio"
+        ],
         "summary": "Atualização de laboratório",
         "parameters": [
           {
-            "name": "id", 
+            "name": "id",
             "in": "path",
-            "schema":{
-            }, 
+            "schema": {},
             "required": true,
             "description": "ID do laboratório"
           }
@@ -258,15 +266,16 @@
           }
         }
       },
-      "delete":{
-        "tags": ["Laboratorio"],
+      "delete": {
+        "tags": [
+          "Laboratorio"
+        ],
         "summary": "Exclusão de laboratório",
         "parameters": [
           {
-            "name": "id", 
+            "name": "id",
             "in": "path",
-            "schema":{
-            }, 
+            "schema": {},
             "required": true,
             "description": "ID do laboratório"
           }
@@ -297,9 +306,11 @@
         }
       }
     },
-    "/exame":{
+    "/exame": {
       "post": {
-        "tags": ["Exame"],
+        "tags": [
+          "Exame"
+        ],
         "summary": "Criação de exame",
         "description": "Cria um novo exame",
         "requestBody": {
@@ -424,7 +435,9 @@
         }
       },
       "get": {
-        "tags": ["Exame"],
+        "tags": [
+          "Exame"
+        ],
         "summary": "Exames ativos",
         "description": "Retorna um array com todos os exames ativos.",
         "responses": {
@@ -509,15 +522,16 @@
       }
     },
     "/exame/:id": {
-      "put":{
-        "tags": ["Exame"],
+      "put": {
+        "tags": [
+          "Exame"
+        ],
         "summary": "Atualização de exame",
         "parameters": [
           {
-            "name": "id", 
+            "name": "id",
             "in": "path",
-            "schema":{
-            }, 
+            "schema": {},
             "required": true,
             "description": "ID do exame"
           }
@@ -644,15 +658,16 @@
           }
         }
       },
-      "delete":{
-        "tags": ["Exame"],
+      "delete": {
+        "tags": [
+          "Exame"
+        ],
         "summary": "Exclusão de exame",
         "parameters": [
           {
-            "name": "id", 
+            "name": "id",
             "in": "path",
-            "schema":{
-            }, 
+            "schema": {},
             "required": true,
             "description": "ID do exame"
           }
@@ -685,23 +700,23 @@
     },
     "/associar/:idExame/:idLaboratorio": {
       "post": {
-        "tags": ["LaboratorioExame"],
+        "tags": [
+          "LaboratorioExame"
+        ],
         "summary": "Associa exame e laboratório",
         "description": "Cria a associação de exames e laboratórios",
         "parameters": [
           {
-            "name": "idExame", 
+            "name": "idExame",
             "in": "path",
-            "schema":{
-            }, 
+            "schema": {},
             "required": true,
             "description": "ID do exame"
           },
           {
-            "name": "idLaboratorio", 
+            "name": "idLaboratorio",
             "in": "path",
-            "schema":{
-            }, 
+            "schema": {},
             "required": true,
             "description": "ID do laboratorio"
           }
@@ -764,23 +779,23 @@
     },
     "/desassociar/:idExame/:idLaboratorio": {
       "delete": {
-        "tags": ["LaboratorioExame"],
+        "tags": [
+          "LaboratorioExame"
+        ],
         "summary": "Desassocia exame e laboratório",
         "description": "Exclui a associação de exames e laboratórios",
         "parameters": [
           {
-            "name": "idExame", 
+            "name": "idExame",
             "in": "path",
-            "schema":{
-            }, 
+            "schema": {},
             "required": true,
             "description": "ID do exame"
           },
           {
-            "name": "idLaboratorio", 
+            "name": "idLaboratorio",
             "in": "path",
-            "schema":{
-            }, 
+            "schema": {},
             "required": true,
             "description": "ID do laboratorio"
           }
@@ -812,15 +827,16 @@
     },
     "/laboratorios/exames": {
       "get": {
-        "tags": ["LaboratorioExame"],
+        "tags": [
+          "LaboratorioExame"
+        ],
         "summary": "Laboratórios vinculados ao exame",
         "description": "Retorna um array com todos os laboratórios vinculados ao nome do exame.",
         "parameters": [
           {
-            "name": "nome", 
+            "name": "nome",
             "in": "header",
-            "schema":{
-            }, 
+            "schema": {},
             "required": true,
             "description": "Nome do exame"
           }
@@ -879,6 +895,262 @@
                       }
                     }
                   ]
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/lote/exame": {
+      "post": {
+        "tags": [
+          "Lote"
+        ],
+        "summary": "Inserção de exames em lote",
+        "description": "Upload arquivo CSV, separado por virgulas (,) seguindo o padrão { Nome do exame,tipo do exame }",
+        "requestBody": {
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "file": {
+                    "type": "string",
+                    "format": "file"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Operação realizada com sucesso.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "integer"
+                    },
+                    "nome": {
+                      "type": "string"
+                    },
+                    "tipo": {
+                      "type": "string"
+                    },
+                    "status": {
+                      "type": "boolean"
+                    },
+                    "updatedAt": {
+                      "type": "string"
+                    },
+                    "createdAt": {
+                      "type": "string"
+                    }
+                  },
+                  "example": [
+                    {
+                      "id": 1,
+                      "nome": "Exame 1",
+                      "tipo": "1",
+                      "status": true,
+                      "updatedAt": "2021-12-21T03:00:06.768Z",
+                      "createdAt": "2021-12-21T03:00:06.768Z"
+                    },
+                    {
+                      "id": 2,
+                      "nome": "Exame 2",
+                      "tipo": "1",
+                      "status": true,
+                      "updatedAt": "2021-12-21T03:00:06.776Z",
+                      "createdAt": "2021-12-21T03:00:06.776Z"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Erro ao inserir registros em lote",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string"
+                    }
+                  },
+                  "example": {
+                    "error": "Erro na leitura do arquivo. Os valores devem ser informados no seguinte padrão: { Nome exame,tipo }"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Lote"
+        ],
+        "summary": "Atualização de exames em lote",
+        "description": "Upload arquivo CSV, separado por virgulas (,) seguindo o padrão { Id,Nome do exame,tipo do exame }",
+        "requestBody": {
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "file": {
+                    "type": "string",
+                    "format": "file"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Operação realizada com sucesso.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "integer"
+                    },
+                    "nome": {
+                      "type": "string"
+                    },
+                    "status": {
+                      "type": "boolean"
+                    },
+                    "updatedAt": {
+                      "type": "string"
+                    },
+                    "createdAt": {
+                      "type": "string"
+                    },
+                    "TipoExame": {
+                      "type": "object",
+                      "properties": {
+                        "id": {
+                          "type": "integer"
+                        },
+                        "tipo": {
+                          "type": "string"
+                        },
+                        "status": {
+                          "type": "boolean"
+                        },
+                        "updatedAt": {
+                          "type": "string"
+                        },
+                        "createdAt": {
+                          "type": "string"
+                        }
+                      }
+                    }
+                  },
+                  "example": [
+                    {
+                      "id": 1,
+                      "nome": "Exame Atualizado 1",
+                      "status": true,
+                      "createdAt": "2021-12-21T01:11:36.000Z",
+                      "updatedAt": "2021-12-21T01:18:39.000Z",
+                      "TipoExame": {
+                        "id": 2,
+                        "tipo": "Imagem",
+                        "status": true,
+                        "createdAt": "2021-12-19T23:13:29.000Z",
+                        "updatedAt": "2021-12-19T23:13:29.000Z"
+                      }
+                    },
+                    {
+                      "id": 2,
+                      "nome": "Exame Atualizado 2",
+                      "status": true,
+                      "createdAt": "2021-12-21T01:11:36.000Z",
+                      "updatedAt": "2021-12-21T01:18:39.000Z",
+                      "TipoExame": {
+                        "id": 2,
+                        "tipo": "Imagem",
+                        "status": true,
+                        "createdAt": "2021-12-19T23:13:29.000Z",
+                        "updatedAt": "2021-12-19T23:13:29.000Z"
+                      }
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Erro ao atualizar os registros em lote",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string"
+                    }
+                  },
+                  "example": {
+                    "error": "Erro na leitura do arquivo. Os valores devem ser informados no seguinte padrão: { Id,Nome exame,tipo }"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Lote"
+        ],
+        "summary": "Atualização de exames em lote",
+        "description": "Upload arquivo CSV, separado por virgulas (,) seguindo o padrão { Id }",
+        "requestBody": {
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "file": {
+                    "type": "string",
+                    "format": "file"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Operação realizada com sucesso."
+          },
+          "400": {
+            "description": "Erro ao deletar os registros em lote",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string"
+                    }
+                  },
+                  "example": {
+                    "error": "Erro na leitura do arquivo. Os valores devem ser informados no seguinte padrão: { Id }"
+                  }
                 }
               }
             }

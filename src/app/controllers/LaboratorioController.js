@@ -19,7 +19,10 @@ class LaboratorioController {
       const laboratorios = await Laboratorio.findAll({
         where: {
           status: true
-        }
+        },
+        order: [ 
+          [ 'id', 'ASC' ]
+         ]
       });
   
       return response.status(200).json(laboratorios);
