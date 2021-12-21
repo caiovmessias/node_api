@@ -18,7 +18,7 @@
 
 <div align="center">
 
-[Sobre o projeto](#sobre-o-projeto) | [Tecnologias Utilizadas](#Tecnologias-utilizadas) | [Execução](#execução)
+[Sobre o projeto](#sobre-o-projeto) | [Tecnologias Utilizadas](#Tecnologias-utilizadas) | [Execução](#execução) | [Documentação](#documentação)
 </div>
 
 ----  
@@ -65,4 +65,17 @@ Comandos uteis após a configuração do projeto:
 
 Para visualizar outros comandos, acesse o arquivo `Makefile`  
 
-O projeto subirá na porta `8000`
+## Documentação
+
+Foi disponibilizado uma documentação dos endpoints da API via Swagger.  
+Para visualiza-la basta rodar o projeto e acessar a rota `/docs`
+
+### Documentação auxiliar para funcionamento das rotas de Lote
+
+Para funcionamento correto da rota `/lote/exame` deve ser utilizado o parametro do tipo `Multipart Form` com o nome do parametro sendo `file` e enviar um arquivo `.csv` separado por virgula.
+
+**Formato de entrada do arquivo**  
+
+- **POST:** "nome,tipo"  
+- **PUT:** "id,nome,tipo"  
+- **DELETE:** "id"  

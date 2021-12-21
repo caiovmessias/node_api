@@ -23,8 +23,14 @@ module.exports = (sequelize, DataTypes) => {
     }
   };
   LaboratorioExame.init({
-    idLaboratorio: DataTypes.INTEGER,
-    idExame: DataTypes.INTEGER
+    idLaboratorio: { 
+      type: DataTypes.INTEGER,
+      allowNull: false
+    },
+    idExame: { 
+      type: DataTypes.INTEGER,
+      allowNull: false
+    }
   }, {
     sequelize,
     modelName: 'LaboratorioExame',

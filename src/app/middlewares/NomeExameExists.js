@@ -9,7 +9,7 @@ async function NomeExameExists(request, response, next) {
     }
   });
 
-  if(!exameExists) {
+  if(!exameExists || !exameExists.dataValues.status) {
     return response.status(404).json({ error: 'Exame not found' });
   }
 

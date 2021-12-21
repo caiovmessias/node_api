@@ -2,35 +2,48 @@ const { LaboratorioExame, Laboratorio } = require('../models');
 
 class LaboratorioExameController {
   async associar(request, response) {
-    const { idLaboratorio, idExame } = request.params;
+    try {
+      const { idLaboratorio, idExame } = request.params;
 
-    const laboratorioExame = await LaboratorioExame.create({ idLaboratorio, idExame });
-
-    return response.status(201).json(laboratorioExame);
+      const laboratorioExame = await LaboratorioExame.create({ idLaboratorio, idExame });
+  
+      return response.status(201).json(laboratorioExame);
+    } catch (error) {
+      return response.status(400).json({ error: error });
+    }
   }
 
   async desassociar(request, response) {
-    const { associacao } = request;
+    try {
+      const { associacao } = request;
 
-    await associacao.destroy();
+      await associacao.destroy();
 
-    return response.status(200).send();
+      return response.status(200).send();
+    } catch (error) {
+      return response.status(400).json({ error: error });
+    }
+
   }
 
   async exames(request, response) {
-    const { id } = request.exame.dataValues;
+    try {
+      const { id } = request.exame.dataValues;
 
-    const exames = await LaboratorioExame.findAll({
-      attributes: { 
-        exclude: [ 'id', 'idLaboratorio', 'idExame', 'createdAt', 'updatedAt' ]
-       },
-      where: {
-        idExame: id
-      },
-      include: [ Laboratorio ]
-    });
+      const exames = await LaboratorioExame.findAll({
+        attributes: { 
+          exclude: [ 'id', 'idLaboratorio', 'idExame', 'createdAt', 'updatedAt' ]
+        },
+        where: {
+          idExame: id
+        },
+        include: [ Laboratorio ]
+      });
 
-    return response.status(200).json(exames);
+      return response.status(200).json(exames);
+    } catch (error) {
+      return response.status(400).json({ error: error });
+    }
   }
 }
 

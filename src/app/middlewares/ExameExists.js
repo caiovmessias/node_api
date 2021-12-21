@@ -5,7 +5,7 @@ async function ExameExists(request, response, next) {
 
   const exameExists = await Exame.findByPk(id);
 
-  if(!exameExists) {
+  if(!exameExists || !exameExists.dataValues.status) {
     return response.status(404).json({ error: 'Exame not found' });
   }
 

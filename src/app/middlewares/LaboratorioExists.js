@@ -5,7 +5,7 @@ async function LaboratorioExists(request, response, next) {
 
   const laboratorioExists = await Laboratorio.findByPk(id);
 
-  if(!laboratorioExists) {
+  if(!laboratorioExists || !laboratorioExists.dataValues.status) {
     return response.status(404).json({ error: 'Laboratorio not found' });
   }
 

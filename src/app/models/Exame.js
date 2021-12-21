@@ -23,8 +23,14 @@ module.exports = (sequelize, DataTypes) => {
     }
   };
   Exame.init({
-    nome: DataTypes.STRING,
-    tipo: DataTypes.INTEGER,
+    nome: { 
+      type: DataTypes.STRING,
+      allowNull: false
+    },
+    tipo:{ 
+      type: DataTypes.INTEGER,
+      allowNull: false
+    }, 
     status: DataTypes.BOOLEAN
   }, {
     sequelize,
