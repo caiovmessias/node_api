@@ -48,7 +48,7 @@ Foram utilizadas as seguintes tecnologias na API.
 - NodeJs
 - Express
 - Sequelize
-- Mysql
+- Postgres
 - Docker
 - Jest
 

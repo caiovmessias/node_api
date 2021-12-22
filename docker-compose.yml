@@ -13,16 +13,12 @@ services:
     volumes:
       - ".:/application"
   
-  mysql-5.7:
-    image: mysql:5.7
-    command: --default-authentication-plugin=mysql_native_password
+  postgres:
+    image: postgres
     restart: always
     environment:
-      MYSQL_ROOT_PASSWORD: "12345678"
+      POSTGRES_PASSWORD: "12345678"
     volumes:
-      - "/home/vagrant/services/data/mysql-5.7:/var/lib/mysql"
-      - "/home/vagrant/services/config/mysql-5.7:/etc/mysql/conf.d"
+      - "/home/vagrant/services/data/postgres:/var/lib/postgresql/data"
     ports:
-      - "3306:3306"
-
-
+    - "5432:5432"

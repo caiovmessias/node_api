@@ -1,8 +1,9 @@
 module.exports = {
   development: {
-    dialect: 'mysql',
-    host: 'mysql-5.7',
-    username: 'root',
+    dialect: 'postgres',
+    host: 'postgres',
+    username: 'postgres',
+    port: 5432,
     password: '12345678',
     database: 'node_api',
     seederStorage: 'sequelize',
