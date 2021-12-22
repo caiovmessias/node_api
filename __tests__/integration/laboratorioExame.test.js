@@ -110,19 +110,19 @@ describe('Desassociação de laboratorios e exames', () => {
   });
 });
 
-describe('Retornar laboratórios vinculados ao exame', () => {
+describe('Laboratórios vinculados ao exame', () => {
   it('Deve ser possível retornar uma lista com os laboratórios associados aos exames', async () => {
     const laboratorioResponse = await request(app)
     .post('/laboratorio')
     .send({
-      nome: 'Laboratorio Teste',
+      nome: 'Laboratorio Teste Associacao',
       endereco: 'Rua das amoras, 5000', 
     });
 
     const exameResponse = await request(app)
     .post('/exame')
     .send({
-      nome: 'Exame Teste',
+      nome: 'Exame Teste Associacao',
       tipo: 1
     });
 
@@ -135,7 +135,7 @@ describe('Retornar laboratórios vinculados ao exame', () => {
     
     const response = await request(app)
     .get(`/laboratorios/exames`)
-    .set('nome', 'Exame Teste')
+    .set('nome', 'Exame Teste Associacao')
 
     expect(response.status).toBe(200);
   });
