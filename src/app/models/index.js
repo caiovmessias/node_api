@@ -14,8 +14,10 @@ console.log('------------------');
 
 let sequelize;
 if (config.env) {
+  console.log('Entrei if');
   sequelize = new Sequelize(process.env.DATABASE_URL, config);
 } else {
+  console.log('Entrei else');
   sequelize = new Sequelize(config.database, config.username, config.password, config);
 }
 
