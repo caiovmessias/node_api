@@ -63,7 +63,7 @@ Collection disponibilizada no diretório `src/docs/collection`.
 1. Clone o projeto  
 `git clone https://github.com/caiovmessias/node_api.git`
 
-2. Acessa a pasta do projeto e suba o container do Mysql  
+2. Acessa a pasta do projeto e suba o container do Postgres  
 `docker-compose up -d postgres`
 
 3. Rode o comando abaixo para realizar a configuração do projeto  
@@ -74,10 +74,10 @@ Collection disponibilizada no diretório `src/docs/collection`.
 
 Comandos uteis após a configuração do projeto:
 
-- Iniciar o container da API e do Mysql  
+- Iniciar o container da API e do Postgres  
 `make up`
 
-- Parar os containers da API e do Mysql  
+- Parar os containers da API e do Postgres  
 `make down`
 
 Para visualizar outros comandos, acesse o arquivo `Makefile`  
