@@ -22,6 +22,5 @@ module.exports = {
         rejectUnauthorized: false,
       },
     },
-    database: 'node_api',
   },
 }
