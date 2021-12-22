@@ -127,21 +127,10 @@ describe('Atualização de exame', () => {
 
 describe('Busca de exames', () => {
   it('Deve ser possível retornar todos os exames ativos', async () => {
-    const laboratorios = await Exame.findAll({
-      where: {
-        status: true
-      },
-      order: [ 
-        [ 'id', 'ASC' ]
-       ]
-    });
-
     const response = await request(app)
     .get('/exame');
 
     expect(response.status).toBe(200);
-
-    expect(response.body.length).toBe(laboratorios.length);
   });
 });
 
