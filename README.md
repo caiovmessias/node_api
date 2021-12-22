@@ -58,13 +58,17 @@ Para executar o projeto em sua máquina é necessário possuir o Docker e o Dock
 
 Collection disponibilizada no diretório `src/docs/collection`.
 
+Portas utilizadas pelo projeto:
+- API: **3000**
+- Postgres: **5432**
+
 ### Primeira execução do projeto
 
 1. Clone o projeto  
 `git clone https://github.com/caiovmessias/node_api.git`
 
-2. Acessa a pasta do projeto e suba o container do Mysql  
-`docker-compose up -d mysql-5.7`
+2. Acessa a pasta do projeto e suba o container do Postgres  
+`docker-compose up -d postgres`
 
 3. Rode o comando abaixo para realizar a configuração do projeto  
 `make setup`
@@ -74,10 +78,10 @@ Collection disponibilizada no diretório `src/docs/collection`.
 
 Comandos uteis após a configuração do projeto:
 
-- Iniciar o container da API e do Mysql  
+- Iniciar o container da API e do Postgres  
 `make up`
 
-- Parar os containers da API e do Mysql  
+- Parar os containers da API e do Postgres  
 `make down`
 
 Para visualizar outros comandos, acesse o arquivo `Makefile`  
