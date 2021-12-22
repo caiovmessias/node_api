@@ -15,11 +15,7 @@ module.exports = {
     logging: false
   },
   production: {
-    dialect: 'mysql',
-    host: 'mysql-5.7',
-    username: 'root',
-    password: '12345678',
-    database: 'node_api_prod',
+    dialect: 'postgres',
     seederStorage: 'sequelize'
   },
 }
