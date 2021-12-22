@@ -6,6 +6,12 @@ build:
 up: 
 	docker-compose up -d
 
+upprod: 
+	NODE_ENV=production docker-compose up -d
+
+uptest: 
+	NODE_ENV=test docker-compose up -d
+
 down:
 	docker-compose down
 

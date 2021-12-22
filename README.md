@@ -18,7 +18,7 @@
 
 <div align="center">
 
-[Sobre o projeto](#sobre-o-projeto) | [Tecnologias Utilizadas](#Tecnologias-utilizadas) | [Execução](#execução) | [Documentação](#documentação)
+[Sobre o projeto](#sobre-o-projeto) | [Tecnologias Utilizadas](#Tecnologias-utilizadas) | [Execução](#execução) | [Testes](#testes) | [Documentação](#documentação)
 </div>
 
 ----  
@@ -42,10 +42,13 @@ Foram utilizadas as seguintes tecnologias na API.
 - Sequelize
 - Mysql
 - Docker
+- Jest
 
 ## Execução
 
 Para executar o projeto em sua máquina é necessário possuir o Docker e o Docker compose instalados e configurados.
+
+Collection disponibilizada no diretório `src/docs/collection`.
 
 ### Primeira execução do projeto
 
@@ -70,6 +73,16 @@ Comandos uteis após a configuração do projeto:
 `make down`
 
 Para visualizar outros comandos, acesse o arquivo `Makefile`  
+
+## Testes
+
+Foi criado uma suíte de testes no projeto utilizando o Jest.
+
+Os testes utilizam o banco de dados sqlite.
+
+Para executar os testes rode o comando `yarn test`.
+
+Caso os testes falhem, deve ser removido manualmente o arquivo do sqlite `__tests__/database.sqlite`.
 
 ## Documentação
 
