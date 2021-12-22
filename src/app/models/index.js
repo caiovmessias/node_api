@@ -8,16 +8,10 @@ const env = process.env.NODE_ENV || 'development';
 const config = require('../../config/database.js')[env];
 const db = {};
 
-console.log('------------------');
-console.log(process.env.DATABASE_URL);
-console.log('------------------');
-
 let sequelize;
-if (config.env) {
-  console.log('Entrei if');
+if (env === 'production') {
   sequelize = new Sequelize(process.env.DATABASE_URL, config);
 } else {
-  console.log('Entrei else');
   sequelize = new Sequelize(config.database, config.username, config.password, config);
 }
 
