@@ -64,7 +64,7 @@ Collection disponibilizada no diretório `src/docs/collection`.
 `git clone https://github.com/caiovmessias/node_api.git`
 
 2. Acessa a pasta do projeto e suba o container do Mysql  
-`docker-compose up -d mysql-5.7`
+`docker-compose up -d postgres`
 
 3. Rode o comando abaixo para realizar a configuração do projeto  
 `make setup`
