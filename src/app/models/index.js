@@ -15,6 +15,8 @@ if (env === 'production') {
   sequelize = new Sequelize(config.database, config.username, config.password, config);
 }
 
+console.log('passei aq');
+
 fs
   .readdirSync(__dirname)
   .filter(file => {
