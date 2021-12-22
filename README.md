@@ -58,6 +58,10 @@ Para executar o projeto em sua máquina é necessário possuir o Docker e o Dock
 
 Collection disponibilizada no diretório `src/docs/collection`.
 
+Portas utilizadas pelo projeto:
+- API: **3000**
+- Postgres: **5432**
+
 ### Primeira execução do projeto
 
 1. Clone o projeto  
