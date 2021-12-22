@@ -9,7 +9,7 @@ const LaboratorioExameController = require('../app/controllers/LaboratorioExameC
 
 const laboratorioExameRoutes = Router();
 
-laboratorioExameRoutes.post('/associar/:idExame/:idLaboratorio', LaboratorioExists, ExameExists, LaboratorioExameController.associar);
+laboratorioExameRoutes.post('/associar/:idExame/:idLaboratorio', ExameExists, LaboratorioExists, LaboratorioExameController.associar);
 laboratorioExameRoutes.delete('/desassociar/:idExame/:idLaboratorio', AssociacaoExists, LaboratorioExameController.desassociar);
 laboratorioExameRoutes.get('/laboratorios/exames', NomeExameExists, LaboratorioExameController.exames);
 
